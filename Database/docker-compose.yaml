@@ -1,0 +1,19 @@
+version: "3"
+services:
+    mysql:
+        container_name: mysql
+        image: "mysql:latest"
+        volumes:
+            - ./sql-data/db:/var/lib/mysql
+        ports:
+            - "3306:3306"
+        hostname: VIP
+        environment: 
+            MYSQL_DATABASE: 'peliculas'
+            MYSQL_USER: 'luiskr'
+            MYSQL_PASSWORD: 'admin'
+            MYSQL_ROOT_PASSWORD: 'admin'
+            #MYSQL_ROOT_PASSWORD: 'admin'
+    web_test:
+        image: "nginx:latest"
+        
